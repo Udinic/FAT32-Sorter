@@ -105,7 +105,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	CFileSystem fatFileSystem(defaultDriveLetter);
 	
-	int choise = -1;
+	int choice = -1;
 	bool overrideMenu = false;
 
 	if (argc >= 3)
@@ -114,20 +114,20 @@ int _tmain(int argc, _TCHAR* argv[])
 		
 		if (_tcscmp(argv[2], _T("sort")) == 0)
 		{
-			choise = SORT;
+			choice = SORT;
 		}
 	}
 	else
 	{
-		choise=menu(fatFileSystem.getCurrentDriveLetter());
+		choice=menu(fatFileSystem.getCurrentDriveLetter());
 	}
 
-	if (choise != EXIT)
+	if (choice != EXIT)
 	{
 		do 
 		{
 			_tprintf(_T("\n\n"));
-			switch (choise)
+			switch (choice)
 			{
 				case (DRIVE_CHOOSE):
 				{
@@ -198,7 +198,7 @@ int _tmain(int argc, _TCHAR* argv[])
 					break;
 				}
 			}
-		} while (!overrideMenu && (choise=menu(fatFileSystem.getCurrentDriveLetter())) != EXIT);
+		} while (!overrideMenu && (choice=menu(fatFileSystem.getCurrentDriveLetter())) != EXIT);
 	}	
 	
 	return 0;
